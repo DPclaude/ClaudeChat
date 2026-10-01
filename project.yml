@@ -1,0 +1,40 @@
+name: ClaudeChat
+options:
+  bundleIdPrefix: com.claudechat
+  deploymentTarget:
+    iOS: "16.0"
+packages:
+  MarkdownUI:
+    url: https://github.com/gonzalezreal/swift-markdown-ui
+    from: 2.4.0
+targets:
+  ClaudeChat:
+    type: application
+    platform: iOS
+    sources: [ClaudeChat]
+    dependencies:
+      - package: MarkdownUI
+    scheme: {}
+    info:
+      path: ClaudeChat/Info.plist
+      properties:
+        CFBundleDisplayName: ClaudeChat
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+        NSPhotoLibraryUsageDescription: 用于选择图片发送给模型
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.claudechat.app
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_VERSION: "5.0"
+        CODE_SIGNING_ALLOWED: "NO"
